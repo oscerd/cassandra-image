@@ -28,11 +28,11 @@ Run containers
 Cassandra 2.1.4:
 
 ```
-docker run --name container_cassandra2.1.4 -d oscerd/cassandra
+docker run --name container_cassandra2.1.4 -dt oscerd/cassandra
 ```
 
 Cassandra 2.1.3:
 
 ```
-docker run --name container_cassandra2.1.3 -d oscerd/cassandra:cassandra-2.1.3
+docker run --name container_cassandra2.1.3 -dt oscerd/cassandra:cassandra-2.1.3
 ```
