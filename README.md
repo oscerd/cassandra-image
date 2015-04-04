@@ -1,4 +1,4 @@
-Ubuntu based container with Oracle Java
+Ubuntu based container with Apache Cassandra for development purpose
 
 ## Pull Images
 
