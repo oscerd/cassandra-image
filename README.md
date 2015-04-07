@@ -8,6 +8,7 @@ Actually this Docker container supports:
 - Apache Cassandra 2.1.3
 - Apache Cassandra 2.1.2
 - Apache Cassandra 2.1.1
+- Apache Cassandra 2.1.0
 
 Pull the image.
 
@@ -35,30 +36,50 @@ Apache Cassandra 2.1.1:
 docker pull oscerd/cassandra:cassandra-2.1.1
 ```
 
+Apache Cassandra 2.1.0:
+
+```
+docker pull oscerd/cassandra:cassandra-2.1.0
+```
+
 ## Run containers
 
 Run containers
 
-Cassandra 2.1.4:
+Apache Cassandra 2.1.4:
 
 ```
 docker run --name container_cassandra2.1.4 -dt oscerd/cassandra
 ```
 
-Cassandra 2.1.3:
+Apache Cassandra 2.1.3:
 
 ```
 docker run --name container_cassandra2.1.3 -dt oscerd/cassandra:cassandra-2.1.3
 ```
 
-Cassandra 2.1.2:
+Apache Cassandra 2.1.2:
 
 ```
 docker run --name container_cassandra2.1.2 -dt oscerd/cassandra:cassandra-2.1.2
 ```
 
-Cassandra 2.1.1:
+Apache Cassandra 2.1.1:
 
 ```
 docker run --name container_cassandra2.1.1 -dt oscerd/cassandra:cassandra-2.1.1
+```
+
+Apache Cassandra 2.1.0:
+
+```
+docker run --name container_cassandra2.1.0 -dt oscerd/cassandra:cassandra-2.1.0
+```
+
+## Connect to a running container
+
+Suppose your running container is named cass_test you can execute:
+
+```
+docker exec -ti cass_test /bin/bash
 ```
