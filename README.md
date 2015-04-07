@@ -49,6 +49,12 @@ Apache Cassandra 2.0.14:
 docker pull oscerd/cassandra:cassandra-2.0.14
 ```
 
+Apache Cassandra 2.0.13:
+
+```
+docker pull oscerd/cassandra:cassandra-2.0.13
+```
+
 ## Run containers
 
 Run containers
@@ -87,6 +93,12 @@ Apache Cassandra 2.0.14:
 
 ```
 docker run --name container_cassandra2.0.14 -dt oscerd/cassandra:cassandra-2.0.14
+```
+
+Apache Cassandra 2.0.13:
+
+```
+docker run --name container_cassandra2.0.13 -dt oscerd/cassandra:cassandra-2.0.13
 ```
 
 ## Connect to a running container
