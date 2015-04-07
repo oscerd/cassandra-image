@@ -1,6 +1,6 @@
 # Cassandra 2.1.1 Dockerfile
 #
-# https://github.com/oscerd/docker-java
+# https://github.com/oscerd/docker-cassandra
 
 # Pull base image.
 FROM oscerd/java:latest
