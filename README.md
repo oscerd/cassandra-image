@@ -9,6 +9,7 @@ Actually this Docker container supports:
 - Apache Cassandra 2.1.2
 - Apache Cassandra 2.1.1
 - Apache Cassandra 2.1.0
+- Apache Cassandra 2.0.14
 
 Pull the image.
 
@@ -40,6 +41,12 @@ Apache Cassandra 2.1.0:
 
 ```
 docker pull oscerd/cassandra:cassandra-2.1.0
+```
+
+Apache Cassandra 2.0.14:
+
+```
+docker pull oscerd/cassandra:cassandra-2.0.14
 ```
 
 ## Run containers
@@ -74,6 +81,12 @@ Apache Cassandra 2.1.0:
 
 ```
 docker run --name container_cassandra2.1.0 -dt oscerd/cassandra:cassandra-2.1.0
+```
+
+Apache Cassandra 2.0.14:
+
+```
+docker run --name container_cassandra2.0.14 -dt oscerd/cassandra:cassandra-2.0.14
 ```
 
 ## Connect to a running container
