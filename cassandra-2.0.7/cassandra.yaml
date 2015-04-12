@@ -12,6 +12,7 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 data_file_directories:
   - /opt/cassandra/data
 commitlog_directory: /opt/cassandra/commitlog
+saved_caches_directory: /var/lib/cassandra/saved_caches
 disk_failure_policy: stop
 commit_failure_policy: stop
 key_cache_size_in_mb:
@@ -40,7 +41,6 @@ auto_snapshot: true
 tombstone_warn_threshold: 1000
 tombstone_failure_threshold: 100000
 column_index_size_in_kb: 64
-batch_size_warn_threshold_in_kb: 5
 compaction_throughput_mb_per_sec: 16
 read_request_timeout_in_ms: 5000
 range_request_timeout_in_ms: 10000
