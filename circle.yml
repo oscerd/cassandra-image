@@ -6,6 +6,5 @@ dependencies:
     - docker build -t cassandra .
 test:
   override:
-    - docker run --name cass_container -d cassandra; sleep 10
-    - curl --retry 10 --retry-delay 5 -v http://localhost:9042
+    - docker run --name cass_container -d cassandra
 
