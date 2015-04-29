@@ -22,6 +22,7 @@ dependencies:
     - docker build -t cassandra-2.0.3 cassandra-2.0.3/
     - docker build -t cassandra-2.0.2 cassandra-2.0.2/
     - docker build -t cassandra-2.0.1 cassandra-2.0.1/
+    - docker build -t cassandra-2.0.0 cassandra-2.0.0/
 test:
   override:
     - docker run --name cassandra-2.1.4 -dt cassandra-2.1.4
@@ -43,5 +44,5 @@ test:
     - docker run --name cassandra-2.0.3 -dt cassandra-2.0.3
     - docker run --name cassandra-2.0.2 -dt cassandra-2.0.2
     - docker run --name cassandra-2.0.1 -dt cassandra-2.0.1
-
+    - docker run --name cassandra-2.0.0 -dt cassandra-2.0.0
 
