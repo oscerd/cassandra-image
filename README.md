@@ -4,6 +4,8 @@ Ubuntu based container with Apache Cassandra for development purpose
 
 Actually this Docker container supports:
 
+- Apache Cassandra 2.2.3
+- Apache Cassandra 2.2.2
 - Apache Cassandra 2.2.1
 - Apache Cassandra 2.2.0
 - Apache Cassandra 2.1.9
@@ -34,10 +36,22 @@ Actually this Docker container supports:
 
 Pull the image.
 
-Apache Cassandra 2.2.1:
+Apache Cassandra 2.2.3
 
 ```
 docker pull oscerd/cassandra
+```
+
+Apache Cassandra 2.2.2
+
+```
+docker pull oscerd/cassandra:cassandra-2.2.2
+```
+
+Apache Cassandra 2.2.1
+
+```
+docker pull oscerd/cassandra:cassandra-2.2.1
 ```
 
 Apache Cassandra 2.2.0:
@@ -200,10 +214,22 @@ docker pull oscerd/cassandra:cassandra-2.0.0
 
 Run containers
 
+Apache Cassandra 2.2.3:
+
+```
+docker run --name container_cassandra2.2.3 -dt oscerd/cassandra
+```
+
+Apache Cassandra 2.2.2:
+
+```
+docker run --name container_cassandra2.2.2 -dt oscerd/cassandra:cassandra-2.2.2
+```
+
 Apache Cassandra 2.2.1:
 
 ```
-docker run --name container_cassandra2.2.1 -dt oscerd/cassandra
+docker run --name container_cassandra2.2.1 -dt oscerd/cassandra:cassandra-2.2.1
 ```
 
 Apache Cassandra 2.2.0:
