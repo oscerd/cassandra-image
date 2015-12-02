@@ -3,7 +3,7 @@
 # https://github.com/oscerd/docker-cassandra
 
 # Pull base image.
-FROM oscerd/java:latest
+FROM oscerd/java:oraclejava8
 MAINTAINER Andrea Cosentino <ancosen1985@yahoo.com>
 
 # Download and extract Cassandra
