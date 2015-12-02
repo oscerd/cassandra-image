@@ -3,7 +3,7 @@ machine:
     - docker
 dependencies:
   override:
-    - docker build -t cassandra-2.2.3 .
+    - docker build -t cassandra-2.2.3 cassandra-2.2.3/
     - docker build -t cassandra-2.2.2 cassandra-2.2.2/
     - docker build -t cassandra-2.2.1 cassandra-2.2.1/
     - docker build -t cassandra-2.2.0 cassandra-2.2.0/
