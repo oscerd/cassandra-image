@@ -44,7 +44,7 @@ Pull the image.
 Apache Cassandra 2.2.3
 
 ```
-docker pull oscerd/cassandra
+docker pull oscerd/cassandra:cassandra-2.2.3
 ```
 
 Apache Cassandra 2.2.2
@@ -252,7 +252,7 @@ Run containers
 Apache Cassandra 2.2.3:
 
 ```
-docker run --name container_cassandra2.2.3 -dt oscerd/cassandra
+docker run --name container_cassandra2.2.3 -dt oscerd/cassandra:cassandra-2.2.3
 ```
 
 Apache Cassandra 2.2.2:
