@@ -28,4 +28,4 @@ fi
 
 # Start server
 cd /opt/cassandra
-bin/cassandra -f
+bin/cassandra -Rf
