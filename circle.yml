@@ -4,6 +4,7 @@ machine:
 dependencies:
   override:
     - docker build -t cassandra-3.4 .
+    - docker build -t cassandra-3.0.3 cassandra-3.0.3/
     - docker build -t cassandra-3.0.2 cassandra-3.0.2/
     - docker build -t cassandra-3.0.1 cassandra-3.0.1/
     - docker build -t cassandra-3.0.0 cassandra-3.0.0/
@@ -46,6 +47,7 @@ dependencies:
 test:
   override:
     - docker run --name cassandra-3.4 -dt cassandra-3.4
+    - docker run --name cassandra-3.0.3 -dt cassandra-3.0.3
     - docker run --name cassandra-3.0.2 -dt cassandra-3.0.2
     - docker run --name cassandra-3.0.1 -dt cassandra-3.0.1
     - docker run --name cassandra-3.0.0 -dt cassandra-3.0.0
