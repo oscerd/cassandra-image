@@ -16,7 +16,7 @@ This way you'll have a single node in the cluster. Now we have to add the others
 docker run --name node1 -d -e SEED="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)" oscerd/cassandra
 ```
 
-The environment variable SEED, when defined, will add the seeds information into cassandra.yaml configuration file. We will do the same for the node 2 and node 3.
+The environment variable SEED, when defined, will add the seeds information into cassandra.yaml configuration file. We will need to do the same for the node 2 and node 3.
 
 ```shell
 docker run --name node2 -d -e SEED="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)" oscerd/cassandra
@@ -45,7 +45,7 @@ UN  172.17.0.4  88.39 KiB  256          49.7%             e9d049db-ad52-42e0-b38
 
 We have our cluster running now. Let's try to write something. 
 
-I have a local copy of Apache Cassandra 3.6. Run the following command:
+I suppose you have a local copy of Apache Cassandra 3.6. Run the following command:
 
 ```shell
 <LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)
@@ -82,6 +82,7 @@ cqlsh:test> select * from users;
 
 (1 rows)
 cqlsh:test> 
+```
 
 Now we have to check the other nodes:
 
