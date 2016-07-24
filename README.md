@@ -6,7 +6,7 @@ Suppose you'd like to spin up a Cassandra cluster with 4 nodes. You can do this 
 
 
 ```shell
-docker run --name master_node -dt oscerd:cassandra
+docker run --name master_node -dt oscerd/cassandra
 ```
 
 This way you'll have a single node in the cluster. Now we have to add the others. Let's add the node 1.
@@ -63,7 +63,7 @@ cqlsh>
 Copy the following instructions in your cqlsh prompt:
 
 ```shell
-create keyspace test with replication = {'class':'SimpleStrategy', 'replication_factor':2};
+create keyspace test with replication = {'class':'SimpleStrategy', 'replication_factor':3};
 use test;
 create table users ( id int primary key, name text );
 insert into users (id,name) values (1, 'oscerd');
