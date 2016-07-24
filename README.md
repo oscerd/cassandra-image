@@ -1,5 +1,149 @@
 Ubuntu based container with Apache Cassandra for development purpose
 
+## Run a Cassandra cluster
+
+Suppose you'd like to spin up a Cassandra cluster with 4 nodes. You can do this by executing the following command (tested with Cassandra 3.6 and Cassandra 3.7).
+
+
+```shell
+docker run --name master_node -dt oscerd:cassandra
+```
+
+This way you'll have a single node in the cluster. Now we have to add the others. Let's add the node 1.
+
+
+```shell
+docker run --name node1 -d -e SEED="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)" oscerd/cassandra
+```
+
+The environment variable SEED, when defined, will add the seeds information into cassandra.yaml configuration file. We will do the same for the node 2 and node 3.
+
+```shell
+docker run --name node2 -d -e SEED="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)" oscerd/cassandra
+docker run --name node3 -d -e SEED="$(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)" oscerd/cassandra
+```
+
+After a while you should be able to see the cluster up and running. You can check the status with the following command.
+
+```shell
+docker exec -ti master_node /opt/cassandra/bin/nodetool status
+```
+
+and get the following output (if everything is up and running):
+
+```shell
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.3  97.53 KiB  256          52.0%             c125152e-d155-4826-92a2-fca2d33ec2c5  rack1
+UN  172.17.0.2  107.59 KiB  256          48.4%             bd2cb8c1-9995-4669-9eb7-15f029ca654f  rack1
+UN  172.17.0.5  245.41 KiB  256          49.9%             97de78c6-f9db-4154-b7d8-588dd4f275ac  rack1
+UN  172.17.0.4  88.39 KiB  256          49.7%             e9d049db-ad52-42e0-b38a-79e4ad400ef3  rack1
+```
+
+We have our cluster running now. Let's try to write something. 
+
+I have a local copy of Apache Cassandra 3.6. Run the following command:
+
+```shell
+<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)
+```
+
+Now we should be able to create a keyspace and a table.
+
+```shell
+Connected to Test Cluster at 172.17.0.2:9042.
+[cqlsh 5.0.1 | Cassandra 3.6 | CQL spec 3.4.2 | Native protocol v4]
+Use HELP for help.
+cqlsh> 
+```
+
+Copy the following instructions in your cqlsh prompt:
+
+```shell
+create keyspace test with replication = {'class':'SimpleStrategy', 'replication_factor':2};
+use test;
+create table users ( id int primary key, name text );
+insert into users (id,name) values (1, 'oscerd');
+quit;
+```
+
+and run a simple query:
+
+```shell
+cqlsh> use test;
+cqlsh:test> select * from users;
+
+ id | name
+----+--------
+  1 | oscerd
+
+(1 rows)
+cqlsh:test> 
+
+Now we have to check the other nodes:
+
+```shell
+<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' node1)
+Connected to Test Cluster at 172.17.0.3:9042.
+[cqlsh 5.0.1 | Cassandra 3.6 | CQL spec 3.4.2 | Native protocol v4]
+Use HELP for help.
+cqlsh> use test;
+cqlsh:test> select * from users;
+
+ id | name
+----+--------
+  1 | oscerd
+
+(1 rows)
+cqlsh:test> insert into users (id,name) values (2, 'anotheruser');
+cqlsh:test> select * from users;
+
+ id | name
+----+-------------
+  1 |      oscerd
+  2 | anotheruser
+
+(2 rows)
+cqlsh:test> 
+```
+
+let's take a look at node3 now, for example:
+
+```shell
+<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' node3)
+Connected to Test Cluster at 172.17.0.5:9042.
+[cqlsh 5.0.1 | Cassandra 3.6 | CQL spec 3.4.2 | Native protocol v4]
+Use HELP for help.
+cqlsh> use test;
+cqlsh:test> select * from users;
+
+ id | name
+----+-------------
+  1 |      oscerd
+  2 | anotheruser
+
+(2 rows)
+cqlsh:test> 
+```
+
+We can check the status of our cluster once again:
+
+```shell
+docker exec -ti master_node /opt/cassandra/bin/nodetool status 
+Datacenter: datacenter1
+=======================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address     Load       Tokens       Owns (effective)  Host ID                               Rack
+UN  172.17.0.3  104.14 KiB  256          52.0%             c125152e-d155-4826-92a2-fca2d33ec2c5  rack1
+UN  172.17.0.2  79.17 KiB  256          48.4%             bd2cb8c1-9995-4669-9eb7-15f029ca654f  rack1
+UN  172.17.0.5  146.83 KiB  256          49.9%             97de78c6-f9db-4154-b7d8-588dd4f275ac  rack1
+UN  172.17.0.4  110.09 KiB  256          49.7%             e9d049db-ad52-42e0-b38a-79e4ad400ef3  rack1
+```
+
 ## Pull Images
 
 Actually this Docker container supports:
