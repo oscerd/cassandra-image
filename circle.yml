@@ -26,6 +26,7 @@ dependencies:
     - docker build -t cassandra-2.2.2 cassandra-2.2.2/
     - docker build -t cassandra-2.2.1 cassandra-2.2.1/
     - docker build -t cassandra-2.2.0 cassandra-2.2.0/
+    - docker build -t cassandra-2.1.15 cassandra-2.1.15/
     - docker build -t cassandra-2.1.14 cassandra-2.1.14/
     - docker build -t cassandra-2.1.13 cassandra-2.1.13/
     - docker build -t cassandra-2.1.12 cassandra-2.1.12/
@@ -85,6 +86,7 @@ test:
     - docker run --name cassandra-2.2.2 -dt cassandra-2.2.2
     - docker run --name cassandra-2.2.1 -dt cassandra-2.2.1
     - docker run --name cassandra-2.2.0 -dt cassandra-2.2.0
+    - docker run --name cassandra-2.1.15 -dt cassandra-2.1.15
     - docker run --name cassandra-2.1.14 -dt cassandra-2.1.14
     - docker run --name cassandra-2.1.13 -dt cassandra-2.1.13
     - docker run --name cassandra-2.1.12 -dt cassandra-2.1.12
