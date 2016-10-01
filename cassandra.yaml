@@ -12,6 +12,8 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 data_file_directories:
   - /opt/cassandra/data
 commitlog_directory: /opt/cassandra/commitlog
+cdc_enabled: false
+cdc_raw_directory: /var/lib/cassandra/cdc_raw
 disk_failure_policy: stop
 commit_failure_policy: stop
 key_cache_size_in_mb:
@@ -72,5 +74,5 @@ client_encryption_options:
     enabled: false
     keystore: conf/.keystore
     keystore_password: cassandra
-internode_compression: all
+internode_compression: dc
 inter_dc_tcp_nodelay: false
