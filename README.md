@@ -149,6 +149,7 @@ UN  172.17.0.4  110.09 KiB  256          49.7%             e9d049db-ad52-42e0-b3
 
 Actually this Docker container supports:
 
+- Apache Cassandra 3.10
 - Apache Cassandra 3.9
 - Apache Cassandra 3.7
 - Apache Cassandra 3.6
@@ -216,6 +217,12 @@ Actually this Docker container supports:
 - Apache Cassandra 2.0.0
 
 Pull the image.
+
+Apache Cassandra 3.10
+
+```
+docker pull oscerd/cassandra
+```
 
 Apache Cassandra 3.9
 
@@ -610,6 +617,12 @@ docker pull oscerd/cassandra:cassandra-2.0.0
 ## Run containers
 
 Run containers
+
+Apache Cassandra 3.10:
+
+```
+docker run --name container_cassandra3.10 -dt oscerd/cassandra
+```
 
 Apache Cassandra 3.9:
 
