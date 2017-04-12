@@ -220,7 +220,7 @@ Pull the image.
 Apache Cassandra 3.9
 
 ```
-docker pull oscerd/cassandra
+docker pull oscerd/cassandra:cassandra-3.9
 ```
 
 Apache Cassandra 3.7
@@ -614,7 +614,7 @@ Run containers
 Apache Cassandra 3.9:
 
 ```
-docker run --name container_cassandra3.9 -dt oscerd/cassandra
+docker run --name container_cassandra3.9 -dt oscerd/cassandra:cassandra-3.9
 ```
 
 Apache Cassandra 3.7:
