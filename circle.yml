@@ -15,6 +15,7 @@ dependencies:
     - docker build -t cassandra-3.2 cassandra-3.2/
     - docker build -t cassandra-3.1.1 cassandra-3.1.1/
     - docker build -t cassandra-3.1 cassandra-3.1/
+    - docker build -t cassandra-3.0.13 cassandra-3.0.14/
     - docker build -t cassandra-3.0.13 cassandra-3.0.13/
     - docker build -t cassandra-3.0.12 cassandra-3.0.12/
     - docker build -t cassandra-3.0.10 cassandra-3.0.10/
@@ -88,6 +89,7 @@ test:
     - docker run --name cassandra-3.2 -dt cassandra-3.2
     - docker run --name cassandra-3.1.1 -dt cassandra-3.1.1
     - docker run --name cassandra-3.1 -dt cassandra-3.1
+    - docker run --name cassandra-3.0.14 -dt cassandra-3.0.14
     - docker run --name cassandra-3.0.13 -dt cassandra-3.0.13
     - docker run --name cassandra-3.0.12 -dt cassandra-3.0.12
     - docker run --name cassandra-3.0.10 -dt cassandra-3.0.10
