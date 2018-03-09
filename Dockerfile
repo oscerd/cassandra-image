@@ -1,4 +1,4 @@
-# Cassandra 3.11 Dockerfile
+# Cassandra 3.11.2 Dockerfile
 #
 # https://github.com/oscerd/docker-cassandra
 
@@ -9,7 +9,7 @@ MAINTAINER Andrea Cosentino <ancosen1985@yahoo.com>
 # Download and extract Cassandra
 RUN mkdir /opt/cassandra
 RUN cd /tmp/
-RUN wget -O - http://archive.apache.org/dist/cassandra/3.11/apache-cassandra-3.11-bin.tar.gz | tar xzf - --strip-components=1 -C "/opt/cassandra"
+RUN wget -O - http://archive.apache.org/dist/cassandra/3.11.2/apache-cassandra-3.11.2-bin.tar.gz | tar xzf - --strip-components=1 -C "/opt/cassandra"
 
 COPY . /src
 
