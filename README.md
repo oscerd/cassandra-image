@@ -227,7 +227,7 @@ Pull the image.
 Apache Cassandra 3.11
 
 ```
-docker pull oscerd/cassandra
+docker pull oscerd/cassandra:cassandra-3.11
 ```
 
 Apache Cassandra 3.10
