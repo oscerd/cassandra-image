@@ -77,4 +77,3 @@ client_encryption_options:
 internode_compression: dc
 inter_dc_tcp_nodelay: false
 enable_materialized_views: false
-enable_transient_replication: false
