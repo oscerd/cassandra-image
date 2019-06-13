@@ -227,10 +227,11 @@ Actually this Docker container supports:
 
 Pull the image.
 
+
 Apache Cassandra 3.11.3
 
 ```
-docker pull oscerd/cassandra
+docker pull oscerd/cassandra::cassandra-3.11.3
 ```
 
 Apache Cassandra 3.11.2
@@ -684,7 +685,7 @@ Run containers
 Apache Cassandra 3.11.3:
 
 ```
-docker run --name container_cassandra3.11.3 -dt oscerd/cassandra
+docker run --name container_cassandra3.11.3 -dt oscerd/cassandra:cassandra-3.11.3
 ```
 
 Apache Cassandra 3.11.2:
