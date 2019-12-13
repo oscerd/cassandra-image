@@ -2,7 +2,7 @@ Ubuntu based container with Apache Cassandra for development purpose
 
 ## Run a Cassandra cluster
 
-Suppose you'd like to spin up a Cassandra cluster with 4 nodes. You can do this by executing the following commands (tested with Cassandra 3.6 and Cassandra 3.7).
+Suppose you'd like to spin up a Cassandra cluster with 4 nodes. You can do this by executing the following commands (tested with Cassandra 3.6, 3.7, 3.8, 3.9, 3.10 and 3.11).
 
 
 ```shell
