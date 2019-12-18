@@ -149,6 +149,7 @@ UN  172.17.0.4  110.09 KiB  256          49.7%             e9d049db-ad52-42e0-b3
 
 Actually this Docker container supports:
 
+- Apache Cassandra 3.11.5
 - Apache Cassandra 3.11.4
 - Apache Cassandra 3.11.3
 - Apache Cassandra 3.11.2
