@@ -180,6 +180,7 @@ Actually this Docker container supports:
 - Apache Cassandra 3.0.2
 - Apache Cassandra 3.0.1
 - Apache Cassandra 3.0.0
+- Apache Cassandra 2.2.11
 - Apache Cassandra 2.2.10
 - Apache Cassandra 2.2.9
 - Apache Cassandra 2.2.8
@@ -416,6 +417,12 @@ Apache Cassandra 3.0.0
 
 ```
 docker pull oscerd/cassandra:cassandra-3.0.0
+```
+
+Apache Cassandra 2.2.11
+
+```
+docker pull oscerd/cassandra:cassandra-2.2.11
 ```
 
 Apache Cassandra 2.2.10
@@ -900,6 +907,12 @@ Apache Cassandra 3.0.0:
 
 ```
 docker run --name container_cassandra3.0.0 -dt oscerd/cassandra:cassandra-3.0.0
+```
+
+Apache Cassandra 2.2.11:
+
+```
+docker run --name container_cassandra2.2.11 -dt oscerd/cassandra:cassandra-2.2.11
 ```
 
 Apache Cassandra 2.2.10:
