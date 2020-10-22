@@ -45,10 +45,10 @@ UN  172.17.0.4  88.39 KiB  256          49.7%             e9d049db-ad52-42e0-b38
 
 We have our cluster running now. Let's try to write something. 
 
-I suppose you have a local copy of Apache Cassandra 3.6. Run the following command:
+Run `cqlsh` in a separate container linked to the `master_node`
 
 ```shell
-<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' master_node)
+docker run --entrypoint cqlsh --link master_node -it --rm  oscerd/cassandra master_node
 ```
 
 Now we should be able to create a keyspace and a table.
@@ -87,7 +87,7 @@ cqlsh:test>
 Now we have to check the other nodes:
 
 ```shell
-<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' node1)
+docker run --entrypoint cqlsh --link node1 -it --rm  oscerd/cassandra node1
 Connected to Test Cluster at 172.17.0.3:9042.
 [cqlsh 5.0.1 | Cassandra 3.6 | CQL spec 3.4.2 | Native protocol v4]
 Use HELP for help.
@@ -114,7 +114,7 @@ cqlsh:test>
 let's take a look at node3 now, for example:
 
 ```shell
-<LOCAL_CASSANDRA_HOME>/bin/cqlsh $(docker inspect --format='{{ .NetworkSettings.IPAddress }}' node3)
+docker run --entrypoint cqlsh --link node3 -it --rm  oscerd/cassandra node3
 Connected to Test Cluster at 172.17.0.5:9042.
 [cqlsh 5.0.1 | Cassandra 3.6 | CQL spec 3.4.2 | Native protocol v4]
 Use HELP for help.
