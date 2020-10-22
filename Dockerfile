@@ -6,10 +6,18 @@
 FROM oscerd/java:oraclejava8
 MAINTAINER Andrea Cosentino <ancosen1985@yahoo.com>
 
+# install python2.7 for cqlsh
+RUN apt-get update && \
+    apt-get install -y python2.7 && \
+    apt-get clean
+
 # Download and extract Cassandra
 RUN mkdir /opt/cassandra
 RUN cd /tmp/
 RUN wget -O - http://archive.apache.org/dist/cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz | tar xzf - --strip-components=1 -C "/opt/cassandra"
+
+# put cqlsh on PATH
+RUN ln -s /opt/cassandra/bin/cqlsh /usr/local/bin/cqlsh
 
 COPY . /src
 
